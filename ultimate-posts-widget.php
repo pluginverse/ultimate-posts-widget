@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Posts Widget
 Plugin URI: http://wordpress.org/plugins/ultimate-posts-widget/
 Description: The ultimate widget for displaying posts, custom post types or sticky posts with an array of options.
-Version: 2.0.0
+Version: 2.0.1
 Author: Boston Dell-Vandenberg
 Author URI: http://pomelodesign.com
 Text Domain: upw
@@ -194,14 +194,14 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
       if ($instance['template'] === 'custom') {
         $custom_template_path = apply_filters('upw_custom_template_path',  '/upw/' . $instance['template_custom'] . '.php');
         if (locate_template($custom_template_path)) {
-          require_once(get_stylesheet_directory() . $custom_template_path);
+          include get_stylesheet_directory() . $custom_template_path;
         } else {
-          require_once('templates/standard.php');
+          include 'templates/standard.php';
         }
       } elseif ($instance['template']) {
-        require_once('templates/' . $instance['template'] . '.php');
+        include 'templates/' . $instance['template'] . '.php';
       } else {
-        require_once('templates/legacy.php');
+        include 'templates/legacy.php';
       }
 
       // Reset the global $the_post as this query will have stomped on it
@@ -277,7 +277,7 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
 
       // Set default arguments
       $instance = wp_parse_args( (array) $instance, array(
-        'title' => '',
+        'title' => __('Ultimate Posts', 'upw'),
         'class' => '',
         'title_link' => '' ,
         'number' => '5',
@@ -621,7 +621,7 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
       </div>
 
       <p class="upw-credits">
-        Enjoy this plugin? Please <a href="http://pomelodesign.com/donate/" target="_blank">donate to support development</a>.
+        <?php _e('Enjoy this plugin? Please <a href="http://pomelodesign.com/donate/" target="_blank">donate to support development</a>.', 'upw'); ?>
       </p>
 
       <?php if ( $instance ) { ?>
