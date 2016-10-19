@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Posts Widget
 Plugin URI: http://wordpress.org/plugins/ultimate-posts-widget/
 Description: The ultimate widget for displaying posts, custom post types or sticky posts with an array of options.
-Version: 2.0.5
+Version: 2.0.6
 Author: Boston Dell-Vandenberg
 Author URI: http://pomelodesign.com
 Text Domain: upw
@@ -64,7 +64,12 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
     function widget( $args, $instance ) {
 
       global $post;
-      $current_post_id =  $post->ID;
+
+      if ( is_object( $post ) ) {
+        $current_post_id = $post->ID;
+      } else {
+        $current_post_id = 0;
+      }
 
       $cache = wp_cache_get( 'widget_ultimate_posts', 'widget' );
 
@@ -182,8 +187,8 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
 
       if ($instance['template'] === 'custom') {
         $custom_template_path = apply_filters('upw_custom_template_path',  '/upw/' . $instance['template_custom'] . '.php', $instance, $this->id_base);
-        if (locate_template($custom_template_path)) {
-          include get_stylesheet_directory() . $custom_template_path;
+        if ( $template = locate_template($custom_template_path) ) {
+          include $template;
         } else {
           include 'templates/standard.php';
         }
