@@ -12,6 +12,8 @@ The ultimate widget for displaying posts, custom post types or sticky posts with
 
 == Description ==
 
+UPDATE: Plugin ownership changed for this plugin. We are currently evaluating possible enhancements for it. Stay tuned! If you have any suggestions yourself, please let us know in the Support Forum. 
+
 The ultimate widget for displaying posts, custom post types or sticky posts with an array of options to customize the display.
 
 Designed for both the average user and developer, Ultimate Posts Widgets aims to provide flexibility and ease of use for displaying any kinds of posts within your widget areas. An array of widget options are available as well as hooks, filters and custom templates for more advanced customization.
