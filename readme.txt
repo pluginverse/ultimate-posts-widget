@@ -1,12 +1,12 @@
 === Ultimate Posts Widget ===
-Contributors: cl272, upwsupport
+Contributors: cl272
 Donate link: https://sellcodes.com/5U4SICyc
 License: MIT
 License URI: http://opensource.org/licenses/MIT
 Tags: widget, recent posts, custom post types, sticky posts, featured image, post thumbnail, excerpts, category, custom fields, list pages, widget query, microformats, customizable widget,  categories widget, tags widget, excerpt, widget templates, post author, post date, custom query, ultimate posts, comments, orderby, comment count
 Requires at least: 3.5
 Tested up to: 5.3
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 
 The ultimate widget for displaying posts, custom post types or sticky posts with an array of options.
 
@@ -42,6 +42,7 @@ Designed for both the average user and developer, Ultimate Posts Widgets aims to
 * Add widget title link
 * Change excerpt length (in words)
 * Order by date, title, number of comments, random or a custom field
+* Exclude current post from the list
 
 = Documentation =
 
@@ -118,6 +119,10 @@ This plugin uses the [timthumb library](http://www.binarymoon.co.uk/projects/tim
 5. Order options tab
 
 == Changelog ==
+
+= 2.1.1 =
+* Added possibility to exclude current post from the list
+* Tested update WordPress 5.3.3 (beta)+
 
 = 2.1.0 =
 * Added possibility for changing custom message when no posts.
@@ -267,9 +272,9 @@ This plugin uses the [timthumb library](http://www.binarymoon.co.uk/projects/tim
 
 == Upgrade Notice ==
 
-= 2.1.0 =
+= 2.0.0 =
 
-Please update
+This is a major update and includes some breaking changes. New templates have been introduced, a few fields have changed, and thumbnails have been modified. See the changelog for details.
 
 == Installation ==
 

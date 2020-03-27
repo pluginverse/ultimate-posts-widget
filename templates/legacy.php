@@ -2,7 +2,7 @@
 /**
  * Legacy template for compatibility with versions prior to 2.0.0
  *
- * @version     2.0.0
+ * @version     2.1.1
  */
 ?>
 
@@ -95,7 +95,7 @@
 
         <?php if ($custom_fields) {
           $custom_field_name = explode(',', $custom_fields);
-          foreach ($custom_field_name as $name) { 
+          foreach ($custom_field_name as $name) {
             $name = trim($name);
             $custom_field_values = get_post_meta($post->ID, $name, true);
             if ($custom_field_values) {
@@ -111,7 +111,7 @@
               }
               echo '</p>';
             }
-          } 
+          }
         } ?>
 
       </div>
@@ -119,12 +119,12 @@
     </li>
 
   <?php endwhile; ?>
-  
+
   </ul>
 
 <?php else : ?>
 
-  <p><?php _e('No posts found.', 'upw'); ?></p>
+  <p><?php echo wpautop($instance['custom_empty']); ?></p>
 
 <?php endif; ?>
 

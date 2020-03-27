@@ -2,7 +2,7 @@
 /**
  * Standard ultimate posts widget template
  *
- * @version     2.0.0
+ * @version     2.1.1
  */
 ?>
 
@@ -148,7 +148,7 @@
   <?php else : ?>
 
     <p class="upw-not-found">
-      <?php _e('No posts found.', 'upw'); ?>
+      <?php echo wpautop($instance['custom_empty']); ?>
     </p>
 
   <?php endif; ?>
