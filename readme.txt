@@ -1,5 +1,5 @@
 === Ultimate Posts Widget ===
-Contributors: cl272
+Contributors: cl272, upwsupport
 Donate link: https://sellcodes.com/5U4SICyc
 License: MIT
 License URI: http://opensource.org/licenses/MIT
