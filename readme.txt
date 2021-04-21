@@ -12,7 +12,7 @@ The ultimate widget for displaying posts, custom post types or sticky posts with
 
 == Description ==
 
-Try it out on your free dummy site: Click here => https://tastewp.com/plugins/ultimate-posts-widget
+**Try it out on your free dummy site: Click here => [https://tastewp.com/plugins/ultimate-posts-widget](https://tastewp.com/plugins/ultimate-posts-widget)**
 
 UPDATE: Plugin ownership changed for this plugin. We are currently evaluating possible enhancements for it. Stay tuned! If you have any suggestions yourself, please let us know in the Support Forum.
 
