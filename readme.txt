@@ -56,6 +56,8 @@ For help please ask in the [Support Forum](http://wordpress.org/support/plugin/u
 
 Enjoy this plugin? [Send a tip to support development](https://sellcodes.com/5U4SICyc).
 
+This plugin is part of the Inisev product family - [check out our other products](https://inisev.com).
+
 == Frequently Asked Questions ==
 
 = Filters =
