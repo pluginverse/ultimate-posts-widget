@@ -4,7 +4,7 @@
    * File for our cool Carousel in the footer
    *
    * @category Child Plugin
-   * @version v0.1.0
+   * @version v0.2.0
    * @since v0.1.0
    * @author iClyde <kontakt@iclyde.pl>
    */
@@ -31,6 +31,7 @@
         private $bmi_slug = 'backup-backup/backup-backup.php';
         private $cdp_premium = 'copy-delete-posts-premium/copy-delete-posts-premium.php';
         private $cdp_slug = 'copy-delete-posts/copy-delete-posts.php';
+        private $redi_slug = 'redirect-redirection/redirect-redirection.php';
         private $mpu_slug = 'pop-up-pop-up/pop-up-pop-up.php';
 
         /*
@@ -298,6 +299,12 @@
                 $url = admin_url() . 'admin.php?page=backup-migration';
               }
 
+              // Redirection for RED
+              if ($_POST['slug'] === 'redi') {
+                update_option('irrp_activation_redirect', true);
+                $url = admin_url() . 'admin.php?page=irrp-redirection';
+              }
+
               // Send success
               wp_send_json_success([ 'installed' => true, 'url' => $url ]);
 
@@ -352,6 +359,10 @@
           } elseif ($slug === 'mpu') {
 
             $this->install($this->mpu_slug, 'pop-up-pop-up');
+
+          } elseif ($slug == 'redi') {
+
+            $this->install($this->redi_slug, 'redirect-redirection');
 
             // Anything else error
           } else wp_send_json_error();

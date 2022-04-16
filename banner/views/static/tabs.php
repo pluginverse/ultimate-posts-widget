@@ -44,6 +44,13 @@
     </div>
     <span>Social Share</span>
   </div>
+  <div class="ci-project-list-element ci-project-list-element-redRed" id="redRed-trigger">
+     <div class="ci-project-list-element-logo">
+        <img src="<?php $this->_asset('/projects/red/imgs/not-colored-logo.svg'); ?>" class="ci-white-project-logo">
+        <img src="<?php $this->_asset('/projects/red/imgs/colored-logo-rr.svg'); ?>" class="ci-colored-project-logo">
+     </div>
+     <span>Redirect Redirection</span>
+  </div>
   <div class="ci-project-list-element ci-project-list-element-followIt" id="followIt-trigger">
     <div class="ci-project-list-element-logo">
       <img src="<?php $this->_asset('/projects/fit/imgs/white-logo.svg'); ?>" class="ci-white-project-logo">
