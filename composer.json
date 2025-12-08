@@ -1,0 +1,12 @@
+{
+    "name": "pluginverse/ultimate-posts-widget",
+    "description": "The ultimate widget for displaying posts, custom post types or sticky posts with an array of options.",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Spenser Hale",
+            "email": "opensource@spenserhale.dev"
+        }
+    ]
+}
