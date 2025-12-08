@@ -2,6 +2,10 @@
 
 namespace UltimatePostsWidget;
 
+if(!defined('ABSPATH')){
+  exit; // Exit if accessed directly
+}
+
 class WP_Widget_Ultimate_Posts extends \WP_Widget
 {
 
@@ -26,7 +30,7 @@ class WP_Widget_Ultimate_Posts extends \WP_Widget
 
         $this->alt_option_name = 'widget_ultimate_posts';
 
-        \add_action('save_post', array(&$this, 'flush_widget_cache'));
+        add_action('save_post', array(&$this, 'flush_widget_cache'));
         add_action('deleted_post', array(&$this, 'flush_widget_cache'));
         add_action('switch_theme', array(&$this, 'flush_widget_cache'));
         add_action('admin_enqueue_scripts', array(&$this, 'enqueue_admin_scripts'));
