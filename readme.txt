@@ -129,7 +129,7 @@ This plugin uses the [timthumb library](http://www.binarymoon.co.uk/projects/tim
 
 = 2.3.2 =
 * Tested with WordPress 6.6
-* Minor performance improvements 
+* Minor performance improvements
 * Improvements for PHP 8 utilization
 
 = 2.3.1 =
@@ -137,7 +137,6 @@ This plugin uses the [timthumb library](http://www.binarymoon.co.uk/projects/tim
 * [NOTE] Tested up with WordPress 6.4.3
 
 = 2.3.0 =
-* [NOTE] Upgraded analyst module to latest version
 * [NOTE] Improved sanitization of widget fields
 * [NOTE] Tested up with WordPress 6.4.2
 
@@ -355,7 +354,7 @@ This plugin uses the [timthumb library](http://www.binarymoon.co.uk/projects/tim
 
 = 2.3.2 =
 * Tested with WordPress 6.6
-* Minor performance improvements 
+* Minor performance improvements
 * Improvements for PHP 8 utilization
 
 == Installation ==

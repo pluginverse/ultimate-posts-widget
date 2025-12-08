@@ -9,13 +9,6 @@ Author URI: https://themecheck.info
 Text Domain: ultimate-posts-widget
 License: MIT
 */
-require_once 'analyst/main.php';
-
-analyst_init(array(
-	'client-id' => 'vmg6q36wn85b8kzr',
-	'client-secret' => '35dcca0d55e95f21b3b1f3c6987ae34cf38c65c5',
-	'base-dir' => __FILE__
-));
 
 if (!class_exists('WP_Widget_Ultimate_Posts')) {
 
@@ -809,7 +802,7 @@ add_action('admin_init', function () {
 add_action( 'wp_ajax_upw_hide_admin_notification', 'upw_hide_admin_notification_callback' );
 
 function upw_hide_admin_notification_callback() {
-  
+
   if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field($_POST['nonce']), 'upw_hide_admin_notification')) {
     wp_send_json_error();
     die;
