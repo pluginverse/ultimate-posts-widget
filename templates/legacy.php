@@ -6,7 +6,7 @@
  */
 ?>
 
-<?php if ($instance['before_posts']) : ?>
+<?php if (!empty($instance['before_posts'])) : ?>
   <div class="upw-before">
     <?php echo wpautop($instance['before_posts']); ?>
   </div>
@@ -22,7 +22,7 @@
 
     <li class="<?php echo ($post->ID == $current_post_id && is_single())?'current-post-item':'' ?>">
 
-      <?php if (current_theme_supports('post-thumbnails') && $instance['show_thumbnail'] && has_post_thumbnail()) : ?>
+      <?php if (current_theme_supports('post-thumbnails') && !empty($instance['show_thumbnail']) && has_post_thumbnail()) : ?>
         <div class="upw-image">
           <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
             <?php the_post_thumbnail($instance['thumb_size']); ?>
@@ -32,7 +32,7 @@
 
       <div class="upw-content">
 
-        <?php if (get_the_title() && $instance['show_title']) : ?>
+        <?php if (get_the_title() && !empty($instance['show_title'])) : ?>
           <p class="post-title">
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
               <?php the_title(); ?>
@@ -40,42 +40,42 @@
           </p>
         <?php endif; ?>
 
-        <?php if ($instance['show_date']) : ?>
+        <?php if (!empty($instance['show_date'])) : ?>
           <p class="post-date">
             <?php the_time($instance['date_format']); ?>
           </p>
         <?php endif; ?>
 
-        <?php if ($instance['show_author']) : ?>
+        <?php if (!empty($instance['show_author'])) : ?>
           <p class="post-author">
             <span class="post-author-label"><?php _e('By', 'upw'); ?>:</span>
             <?php the_author_posts_link(); ?>
           </p>
         <?php endif; ?>
 
-        <?php if ($instance['show_comments']) : ?>
+        <?php if (!empty($instance['show_comments'])) : ?>
           <p class="post-comments">
             <?php comments_number(__('No responses', 'upw'), __('One response', 'upw'), __('% responses', 'upw')); ?>
           </p>
         <?php endif; ?>
 
-        <?php if ($instance['show_excerpt']) : ?>
+        <?php if (!empty($instance['show_excerpt'])) : ?>
           <?php
           $linkmore = '';
-          if ($instance['show_readmore']) {
+          if (!empty($instance['show_readmore'])) {
             $linkmore = ' <a href="'.get_permalink().'" class="more-link">'.$excerpt_readmore.'</a>';
           }
           ?>
           <p class="post-excerpt"><?php echo get_the_excerpt() . $linkmore; ?></p>
         <?php endif; ?>
 
-        <?php if ($instance['show_content']) : ?>
+        <?php if (!empty($instance['show_content'])) : ?>
           <p class="post-content"><?php the_content() ?></p>
         <?php endif; ?>
 
         <?php
         $categories = get_the_term_list($post->ID, 'category', '', ', ');
-        if ($instance['show_cats'] && $categories) :
+        if (!empty($instance['show_cats']) && $categories) :
         ?>
           <p class="post-cats">
             <span class="post-cats-label"><?php _e('Categories', 'upw'); ?>:</span>
@@ -85,7 +85,7 @@
 
         <?php
         $tags = get_the_term_list($post->ID, 'post_tag', '', ', ');
-        if ($instance['show_tags'] && $tags) :
+        if (!empty($instance['show_tags']) && $tags) :
         ?>
           <p class="post-tags">
             <span class="post-tags-label"><?php _e('Tags', 'upw'); ?>:</span>
@@ -124,11 +124,11 @@
 
 <?php else : ?>
 
-  <p><?php echo wpautop($instance['custom_empty']); ?></p>
+  <p><?php echo wpautop(!empty($instance['custom_empty']) ? $instance['custom_empty'] : ''); ?></p>
 
 <?php endif; ?>
 
-<?php if ($instance['after_posts']) : ?>
+<?php if (!empty($instance['after_posts'])) : ?>
   <div class="upw-after">
     <?php echo wpautop($instance['after_posts']); ?>
   </div>

@@ -6,7 +6,7 @@
 **Tags:** widget, recent posts, custom post types, sticky posts, featured image, post thumbnail, excerpts, category, custom fields, list pages, widget query, microformats, customizable widget, categories widget, tags widget, excerpt, widget templates, post author, post date, custom query, ultimate posts, comments, orderby, comment count  
 **Requires at least:** 3.5  
 **Tested up to:** 6.9  
-**Stable tag:** 3.0.2  
+**Stable tag:** 3.0.3  
 
 The ultimate widget for displaying posts, custom post types or sticky posts with an array of options.
 
@@ -156,6 +156,11 @@ If you have custom code that depends on the removed modules, you will need to:
 3. Test your site thoroughly after upgrading
 
 ## Change Log
+
+### 3.0.3
+- Fixed PHP warnings for undefined array keys in template files (legacy.php and standard.php)
+- Added !empty() checks for widget instance array access to prevent notices when keys are missing
+- Improved backward compatibility with older widget instances that may lack certain configuration keys
 
 ### 3.0.2
 - Fixed template file path resolution using `__DIR__` for better compatibility across different server configurations
