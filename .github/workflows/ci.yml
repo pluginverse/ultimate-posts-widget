@@ -8,6 +8,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GH_PAT }}
+          persist-credentials: true
 
       - name: Prepare for production
         run: |
@@ -27,5 +30,3 @@ jobs:
           git checkout -b $BRANCH_NAME-built
           git add -A && git commit -m "built from ${{ github.sha }}"
           git push --force -u origin $BRANCH_NAME-built
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
