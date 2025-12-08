@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Prepare for production
         run: |
@@ -21,10 +21,11 @@ jobs:
 
       - name: Create a built branch
         run: |
+          BRANCH_NAME=$(echo ${{ github.ref }} | sed 's|refs/heads/||')
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/pluginverse/ultimate-posts-widget.git
-          BRANCH_NAME=$(echo $GITHUB_REF | grep -oP '(?<=refs\/heads\/).*')
           git checkout -b $BRANCH_NAME-built
-          git add -A && git commit -m "built from $GITHUB_SHA"
+          git add -A && git commit -m "built from ${{ github.sha }}"
           git push --force -u origin $BRANCH_NAME-built
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
