@@ -22,33 +22,6 @@ if (!class_exists(WP_Widget_Ultimate_Posts::class)) {
   add_action( 'widgets_init', 'init_wp_widget_ultimate_posts' );
 }
 
-add_action('admin_init', function () {
-  require_once 'banner/misc.php';
-});
-
-add_action( 'wp_ajax_upw_hide_admin_notification', 'upw_hide_admin_notification_callback' );
-
-function upw_hide_admin_notification_callback() {
-
-  if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field($_POST['nonce']), 'upw_hide_admin_notification')) {
-    wp_send_json_error();
-    die;
-  }
-
-  $option_name = 'upw_hide_admin_notification';
-  $new_value = 'yes';
-
-  if ( get_option( $option_name ) !== false ) {
-    update_option( $option_name, $new_value );
-  } else {
-    $deprecated = null;
-    $autoload = 'no';
-    add_option( $option_name, $new_value, $deprecated, $autoload );
-  }
-  wp_send_json_success();
-  die;
-}
-
 // Activation of tryOutPlugins module
 add_action('plugins_loaded', function () {
 
