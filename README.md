@@ -6,7 +6,7 @@
 **Tags:** widget, recent posts, custom post types, sticky posts, featured image, post thumbnail, excerpts, category, custom fields, list pages, widget query, microformats, customizable widget, categories widget, tags widget, excerpt, widget templates, post author, post date, custom query, ultimate posts, comments, orderby, comment count  
 **Requires at least:** 3.5  
 **Tested up to:** 6.9  
-**Stable tag:** 3.0.0  
+**Stable tag:** 3.0.1  
 
 The ultimate widget for displaying posts, custom post types or sticky posts with an array of options.
 
@@ -154,6 +154,13 @@ If you have custom code that depends on the removed modules, you will need to:
 1. Remove any references to `upw_try_out`, `upw_banner`, or `upw_analyst` filters/hooks
 2. Update any custom hooks or filters that may have changed with the new class structure
 3. Test your site thoroughly after upgrading
+
+### 3.0.1
+- Fixed issue with widget not importing class
+
+### 3.0.0
+**⚠️ BREAKING CHANGES - MAJOR RELEASE**
+This release includes significant refactoring and removal of deprecated modules.
 
 ### 2.3.2
 - Tested with WordPress 6.6
