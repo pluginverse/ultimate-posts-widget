@@ -1,22 +1,16 @@
 # Ultimate Posts Widget
 
-**Contributors:** cl272  
-**Donate link:** https://sellcodes.com/5U4SICyc  
+**Contributors:** cl272
 **License:** MIT  
 **License URI:** http://opensource.org/licenses/MIT  
 **Tags:** widget, recent posts, custom post types, sticky posts, featured image, post thumbnail, excerpts, category, custom fields, list pages, widget query, microformats, customizable widget, categories widget, tags widget, excerpt, widget templates, post author, post date, custom query, ultimate posts, comments, orderby, comment count  
 **Requires at least:** 3.5  
-**Tested up to:** 6.6  
-**Stable tag:** 2.3.2  
+**Tested up to:** 6.9  
+**Stable tag:** 3.0.0  
 
 The ultimate widget for displaying posts, custom post types or sticky posts with an array of options.
 
 ## Description
-
-**Try it out on your free dummy site:** [https://tastewp.com/plugins/ultimate-posts-widget](https://demo.tastewp.com/ultimate-posts-widget)
-(this trick works for all plugins in the WP repo - just replace "wordpress" with "tastewp" in the URL)
-
-> **UPDATE:** Plugin ownership changed for this plugin. We are currently evaluating possible enhancements for it. Stay tuned! If you have any suggestions yourself, please let us know in the Support Forum.
 
 > **Note:** This is a **classic widget** type. In order for it to work on the latest version of WordPress you will need [Classic Widgets](https://wordpress.org/plugins/classic-widgets/) plugin installed on your site.
 
@@ -136,6 +130,30 @@ This plugin uses the [timthumb library](http://www.binarymoon.co.uk/projects/tim
 5. Order options tab
 
 ## Changelog
+
+### 3.0.0
+
+**⚠️ BREAKING CHANGES - MAJOR RELEASE**
+
+This release includes significant refactoring and removal of deprecated modules. Please review the following changes before upgrading:
+
+#### Breaking Changes
+- **Removed Analytics Integration** - The analyst/analytics module has been removed entirely
+- **Removed Admin Banner Module** - The promotional admin banner is no longer included
+- **Removed Try-Out-Plugins Feature** - The "Try It Out" promotional module has been removed
+- **Code Architecture Refactor** - Widget code reorganized into namespace-based class structure (`UltimatePostsWidget\WP_Widget_Ultimate_Posts`)
+
+#### New Features & Improvements
+- **Enhanced CI/CD Pipeline** - Added GitHub Actions workflow for automated testing and built branch creation
+- **Updated Checkout Action** - Upgraded to `actions/checkout@v6` for improved authentication handling
+- **Improved Documentation** - Converted readme.txt to README.md format for better GitHub integration
+- **Cleaner Codebase** - Removed ~800 lines of procedural code in favor of modular class-based approach
+
+#### Migration Guide
+If you have custom code that depends on the removed modules, you will need to:
+1. Remove any references to `upw_try_out`, `upw_banner`, or `upw_analyst` filters/hooks
+2. Update any custom hooks or filters that may have changed with the new class structure
+3. Test your site thoroughly after upgrading
 
 ### 2.3.2
 - Tested with WordPress 6.6
