@@ -2,11 +2,14 @@
 
 namespace UltimatePostsWidget;
 
+use WP_Query;
+use WP_Widget;
+
 if(!defined('ABSPATH')){
   exit; // Exit if accessed directly
 }
 
-class WP_Widget_Ultimate_Posts extends \WP_Widget
+class WP_Widget_Ultimate_Posts extends WP_Widget
 {
 
     function __construct()
@@ -128,9 +131,9 @@ class WP_Widget_Ultimate_Posts extends \WP_Widget
         $types = empty($instance['types']) ? 'any' : explode(',', $instance['types']);
         $cats = empty($instance['cats']) ? '' : explode(',', $instance['cats']);
         $tags = empty($instance['tags']) ? '' : explode(',', $instance['tags']);
-        $atcat = isset($instance['atcat']) && $instance['atcat'] ? true : false;
+        $atcat = isset($instance['atcat']) && $instance['atcat'];
         $thumb_size = $instance['thumb_size'] ?? '';
-        $attag = isset($instance['attag']) && $instance['attag'] ? true : false;
+        $attag = isset($instance['attag']) && $instance['attag'];
         $exclude_current = isset($instance['exclude_current']) ? ($instance['exclude_current'] == true) : false;
         $excerpt_length = $instance['excerpt_length'] ?? '';
         $excerpt_readmore = $instance['excerpt_readmore'] ?? '';
@@ -138,7 +141,7 @@ class WP_Widget_Ultimate_Posts extends \WP_Widget
         $order = $instance['order'] ?? 'DESC';
         $orderby = $instance['orderby'] ?? 'date';
         $meta_key = $instance['meta_key'] ?? '';
-        $custom_empty = isset($instance['custom_empty']) ? $instance['custom_empty'] : '';
+        $custom_empty = $instance['custom_empty'] ?? '';
         $custom_fields = $instance['custom_fields'];
 
         if (strlen($custom_empty) == 0) {
@@ -430,6 +433,7 @@ class WP_Widget_Ultimate_Posts extends \WP_Widget
         // Count number of post types for select box sizing
         $cpt_types = get_post_types(array('public' => true), 'names');
         if ($cpt_types) {
+            $cpt_ar = [];
             foreach ($cpt_types as $cpt) {
                 $cpt_ar[] = $cpt;
             }
@@ -444,6 +448,7 @@ class WP_Widget_Ultimate_Posts extends \WP_Widget
         // Count number of categories for select box sizing
         $cat_list = get_categories('hide_empty=0');
         if ($cat_list) {
+            $cat_ar = [];
             foreach ($cat_list as $cat) {
                 $cat_ar[] = $cat;
             }
@@ -458,6 +463,7 @@ class WP_Widget_Ultimate_Posts extends \WP_Widget
         // Count number of tags for select box sizing
         $tag_list = get_tags('hide_empty=0');
         if ($tag_list) {
+            $tag_ar = [];
             foreach ($tag_list as $tag) {
                 $tag_ar[] = $tag;
             }
@@ -686,7 +692,7 @@ class WP_Widget_Ultimate_Posts extends \WP_Widget
                         echo ' selected';
                     } ?>><?php echo $size; ?></option>
                   <?php endforeach; ?>
-                <option value="full"<?php if ($thumb_size == $size) {
+                <option value="full"<?php if ( isset($size) && ($thumb_size == $size) ) {
                     echo ' selected';
                 } ?>><?php _e('full'); ?></option>
               </select>
