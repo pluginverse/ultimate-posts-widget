@@ -252,12 +252,12 @@ class WP_Widget_Ultimate_Posts extends WP_Widget
             if ($template = locate_template($custom_template_path)) {
                 include $template;
             } else {
-                include 'templates/standard.php';
+                include __DIR__ . '/../templates/standard.php';
             }
         } elseif ($instance['template'] ?? false) {
-            include 'templates/'.$instance['template'].'.php';
+            include __DIR__ . '/../templates/'.$instance['template'].'.php';
         } else {
-            include 'templates/legacy.php';
+            include __DIR__ . '/../templates/legacy.php';
         }
 
         // Reset the global $the_post as this query will have stomped on it
